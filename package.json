@@ -2,7 +2,7 @@
   "name": "lyfes-prompt-hub",
   "displayName": "Lyfe's Prompt Hub",
   "description": "让AI对话更高效的智能提示词管理工具",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "lyfe2025",
   "engines": {
     "vscode": "^1.74.0"
