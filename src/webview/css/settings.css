@@ -1,0 +1,399 @@
+/* 
+ * =============================================
+ * Settings and Management Views
+ * 设置和管理视图样式
+ * =============================================
+ */
+
+.settings-section {
+    margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+.settings-section-header {
+    font-size: 1.1em;
+    font-weight: 600;
+    padding-bottom: var(--spacing-unit);
+    border-bottom: 1px solid var(--vscode-border);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.data-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-unit);
+    border-bottom: 1px solid var(--vscode-border);
+}
+
+#backup-list-container .data-item {
+    cursor: pointer;
+}
+
+#backup-list-container .data-item:hover {
+    background-color: var(--vscode-list-hoverBackground);
+}
+
+/* === 设置视图 (Settings View) === */
+.settings-section {
+    margin-bottom: 24px;
+}
+.settings-section-header {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+.settings-section-header h3 {
+    margin: 0;
+}
+.data-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+.settings-section-content .data-item:last-child {
+    border-bottom: none;
+}
+.integration-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+}
+
+#settings-view-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--spacing-unit);
+    border-top: 1px solid var(--vscode-border);
+    margin-top: auto;
+}
+
+#settings-view-footer .btn-back {
+    min-width: 80px;
+}
+
+#settings-view .view-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-unit);
+}
+
+/* =================================== */
+/*     SETTINGS VIEW CARD LAYOUT       */
+/* =================================== */
+
+/* Add padding to the main content area of the settings view */
+#settings-view .view-content {
+    padding: 16px;
+    background-color: var(--vscode-sideBar-background); /* Match sidebar background */
+}
+
+/* A block containing a title and a card */
+#settings-view .settings-block {
+    margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+/* The title above the card */
+#settings-view .settings-block-title {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--vscode-secondary-foreground);
+    padding: 0 4px 8px 4px; /* Give it some space */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* The card container */
+#settings-view .settings-card {
+    background-color: var(--vscode-editor-background);
+    border: 1px solid var(--vscode-panel-border, var(--vscode-border, rgba(128, 128, 128, 0.2)));
+    border-radius: 8px;
+    overflow: visible; /* Allow dropdowns to extend beyond container */
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--vscode-input-background);
+}
+
+/* Each row inside the card */
+#settings-view .settings-card .data-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    margin: 0;
+    border-bottom: 1px solid var(--vscode-panel-border, var(--vscode-border, rgba(128, 128, 128, 0.2)));
+    background-color: transparent; /* Ensure item background is transparent */
+    overflow: hidden; /* Keep border-radius for individual items */
+}
+
+/* Remove the border from the last item in each card */
+#settings-view .settings-card .data-item:last-child {
+    border-bottom: none;
+}
+
+.settings-block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-unit);
+}
+
+#settings-view .settings-block-title {
+    font-size: 1.1em;
+    margin: 0;
+    color: var(--vscode-foreground);
+    font-weight: 600;
+}
+
+.provider-config {
+    padding: var(--spacing-unit) 0;
+    border-top: 1px solid var(--vscode-border);
+    margin-top: var(--spacing-unit);
+}
+
+.settings-description {
+    font-size: 0.9em;
+    color: var(--vscode-secondary-foreground);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.danger-warning {
+    color: var(--vscode-errorForeground, #f44747) !important;
+}
+
+.settings-divider {
+    border: none;
+    border-top: 1px solid var(--vscode-border);
+    margin: calc(var(--spacing-unit) * 2) 0;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid var(--vscode-settings-rowHoverBackground);
+}
+
+.setting-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.setting-status {
+    font-size: 0.9em;
+    color: var(--vscode-descriptionForeground);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.setting-status.visible {
+    opacity: 1;
+}
+
+.setting-status.error {
+    color: var(--vscode-errorForeground);
+}
+
+#cloud-sync-status {
+    margin-top: 10px;
+} 
+
+/* --- Backup Management View --- */
+#backup-list-container {
+    padding-top: 8px;
+}
+
+.backup-item-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--vscode-sideBar-background);
+    border: 1px solid var(--vscode-sideBar-border);
+    border-radius: 4px;
+    margin-bottom: 0.5rem; /* Reduced margin */
+}
+
+.backup-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-right: 1rem;
+}
+
+.backup-name-display {
+    display: flex;
+    flex-direction: column;
+}
+
+.backup-name {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.backup-meta {
+    font-size: 0.85em;
+    color: var(--vscode-descriptionForeground);
+}
+
+.backup-date {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.backup-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-unit);
+}
+
+.backup-actions .btn-icon {
+    opacity: 0.8;
+}
+
+.backup-actions .btn-icon:hover {
+    opacity: 1;
+}
+
+/* Reduce padding for the backup view content area for consistency */
+#backup-management-view .view-content {
+    padding: var(--spacing-unit);
+}
+
+/* Reset default list styles for the backup list */
+#backup-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 云同步卡片样式 */
+.sync-card {
+    background-color: var(--vscode-editor-background);
+    border: 1px solid var(--vscode-border);
+    border-radius: calc(var(--border-radius) * 2);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.sync-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.sync-card-header h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--vscode-foreground);
+}
+
+.sync-card-subtitle {
+    font-size: 12px;
+    color: var(--vscode-secondary-foreground);
+    margin-top: 2px;
+}
+
+.sync-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.sync-status-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+    width: 100%;
+}
+
+.sync-status-text {
+    font-size: 14px;
+    color: var(--vscode-foreground);
+}
+
+.sync-last-time {
+    font-size: 12px;
+    color: var(--vscode-secondary-foreground);
+}
+
+/* 同步控制区域样式 */
+.sync-control-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sync-control-header label {
+    margin-bottom: 0;
+    font-size: 13px;
+    color: var(--vscode-foreground);
+}
+
+/* 手动同步操作区域样式 */
+.manual-sync-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+#sync-summary-view {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px; /* Consistent with other cards */
+}
+
+#sync-summary-view .summary-text-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+#sync-summary-view .text-content {
+    display: flex;
+    flex-direction: column;
+}
+
+#sync-summary-view .summary-text-main {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--vscode-foreground);
+}
+
+#sync-summary-view .summary-text-secondary {
+    font-size: 12px;
+    color: var(--vscode-descriptionForeground);
+}
+
+#sync-summary-view .summary-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#sync-summary-view .summary-text {
+    font-size: 13px;
+    color: var(--vscode-descriptionForeground);
+}
+
+#sync-summary-view .summary-text strong {
+    color: var(--vscode-foreground);
+}

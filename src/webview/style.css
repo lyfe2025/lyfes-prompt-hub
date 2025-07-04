@@ -1,0 +1,26 @@
+/* 
+ * =============================================
+ * CSS (Cascading Style Sheets)
+ * 负责应用的视觉表现和布局.
+ * 我使用了CSS变量来定义主题色，方便后续快速更换皮肤。
+ * 布局主要使用Flexbox，这是现代CSS中用于构建响应式布局的强大工具。
+ * 
+ * 样式文件已按功能模块拆分到 css/ 目录：
+ * - variables.css: CSS变量定义
+ * - base.css: 基础样式和布局
+ * - buttons.css: 按钮相关样式
+ * - forms.css: 表单控件样式
+ * - views.css: 视图布局样式
+ * - components.css: 特殊组件样式
+ * - settings.css: 设置和管理视图样式
+ * =============================================
+ */
+
+/* 导入顺序很重要：先变量，后基础样式，最后组件样式 */
+@import './css/variables.css';
+@import './css/base.css';
+@import './css/buttons.css';
+@import './css/forms.css';
+@import './css/views.css';
+@import './css/components.css';
+@import './css/settings.css';

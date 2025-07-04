@@ -1,0 +1,303 @@
+/* 
+ * =============================================
+ * Views and Layout Styles
+ * 视图和布局样式
+ * =============================================
+ */
+
+/* --- Prompt List --- */
+#prompt-list-container {
+    padding: 0 var(--spacing-unit);
+}
+
+.prompt-item {
+    display: flex;
+    align-items: center;
+    margin: 0 calc(var(--spacing-unit) * -1); /* Extend hover to full width */
+    padding: calc(var(--spacing-unit) * 1.5) var(--spacing-unit);
+    border-bottom: 1px solid var(--vscode-border);
+    transition: background-color 0.1s ease-in-out;
+    position: relative;
+}
+
+.prompt-item:hover {
+    background-color: var(--vscode-list-hover-background);
+}
+
+.prompt-item.selected {
+    background-color: var(--vscode-list-activeSelectionBackground);
+    color: var(--vscode-list-activeSelectionForeground);
+    border-left: 3px solid var(--vscode-focus-border);
+}
+
+.prompt-item.selected .prompt-item-actions {
+    opacity: 1;
+}
+
+.prompt-item-content {
+    flex-grow: 1;
+    margin-right: var(--spacing-unit);
+}
+
+.prompt-item-title {
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.prompt-item-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px; /* 按钮间增加友好的间距 */
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.prompt-item:hover .prompt-item-actions {
+    opacity: 1;
+}
+
+.prompt-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px; /* 统一的标签间距 */
+}
+
+.prompt-tags .tag {
+    background-color: var(--vscode-list-active-selection-background);
+    color: var(--vscode-list-active-selection-foreground);
+    padding: 2px 6px;
+    border-radius: var(--border-radius);
+    font-size: 12px;
+}
+
+/* --- Category Tabs --- */
+#category-tabs-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-unit);
+    padding: var(--spacing-unit);
+    border-bottom: 1px solid var(--vscode-border);
+    flex-shrink: 0;
+}
+
+.category-tab {
+    padding: 6px 10px;
+    border: none;
+    background: transparent;
+    color: var(--vscode-secondary-foreground);
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    border-bottom: 2px solid transparent;
+}
+
+.category-tab:hover {
+    background-color: var(--vscode-list-hover-background);
+    color: var(--vscode-foreground);
+}
+
+.category-tab.active {
+    color: var(--vscode-foreground);
+    font-weight: 600;
+    border-bottom-color: var(--vscode-focus-border);
+}
+
+/* --- Edit View & Settings --- */
+#edit-view-footer {
+    /* This is no longer used as a primary action bar, but we keep the base for potential future use */
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+    border-top: 1px solid var(--vscode-border);
+    flex-shrink: 0;
+}
+
+.footer-actions-right {
+    display: flex;
+    gap: var(--spacing-unit);
+}
+
+/* --- Category Management --- */
+.category-manage-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-unit);
+    border-bottom: 1px solid var(--vscode-border);
+    transition: background-color 0.1s ease-in-out;
+    gap: var(--spacing-unit);
+}
+
+.category-manage-item:hover {
+    background-color: var(--vscode-list-hover-background);
+}
+
+.category-name-wrapper {
+    flex-grow: 1;
+    display: flex;
+}
+
+.category-name {
+    flex-grow: 1;
+    padding: 4px 6px;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    line-height: 1.5;
+}
+
+.category-name:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+}
+
+.category-manage-actions {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit) / 2);
+}
+
+.new-category-item {
+    background-color: rgba(var(--vscode-focus-border-rgb, 0, 122, 204), 0.1);
+}
+
+#category-view-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: var(--spacing-unit);
+    border-top: 1px solid var(--vscode-border);
+}
+
+/* === 分类管理视图 === */
+#category-list {
+    margin-top: 20px;
+}
+.category-manage-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--surface-color);
+    padding: 12px 16px;
+    border-radius: var(--border-radius);
+    margin-bottom: 8px;
+}
+.category-manage-info {
+    font-weight: 500;
+}
+.category-manage-info .prompt-count {
+    font-size: 12px;
+    color: var(--text-secondary-color);
+    margin-left: 8px;
+}
+.category-manage-actions {
+    display: flex;
+    gap: 8px;
+}
+.info-text {
+    color: var(--text-secondary-color);
+    font-size: 13px;
+    background-color: var(--surface-color);
+    padding: 12px;
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--primary-color);
+}
+
+/* =============================================
+   Category Management View
+   ============================================= */
+
+#category-view .view-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+#category-list-container {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 8px;
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-bottom: 4px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.category-item:hover {
+    background-color: var(--vscode-list-hover-background);
+}
+
+.category-label {
+    flex-grow: 1;
+    font-size: 14px;
+    color: var(--vscode-foreground);
+    cursor: default;
+}
+
+.category-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.category-actions .btn-icon {
+    display: none; /* Hidden by default */
+}
+
+.category-item:hover .category-actions .btn-icon {
+    display: inline-flex; /* Show on hover */
+}
+
+/* When in edit mode, always show buttons */
+.category-item.editing .category-actions .btn-icon {
+    display: inline-flex;
+}
+.category-item.editing .category-actions .edit-category-btn {
+    display: none; /* Hide edit button in edit mode */
+}
+
+#category-view-footer {
+    border-top: 1px solid var(--vscode-editorGroup-border);
+    padding: 12px;
+    background-color: var(--vscode-sideBar-background);
+}
+.category-view .form-actions {
+    justify-content: flex-end;
+}
+
+/* 暂无分类消息样式 */
+.no-categories-message {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--vscode-secondary-foreground);
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* Empty state for backup view */
+.empty-state {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--vscode-secondary-foreground);
+}
+
+.empty-state-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+    opacity: 0.7;
+}
+
+.empty-state h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--vscode-foreground);
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    font-size: 14px;
+    max-width: 300px;
+    margin: 0 auto;
+}

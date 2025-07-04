@@ -1,0 +1,603 @@
+/* 
+ * =============================================
+ * Components Styles
+ * 组件样式 (模态框、下拉菜单、标签等)
+ * =============================================
+ */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    border-bottom: none;
+}
+
+.modal-content {
+    background-color: var(--vscode-sideBar-background);
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    border: 1px solid var(--vscode-sideBar-border);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.status-badge {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-badge.info {
+    background-color: var(--vscode-button-secondaryBackground);
+    color: var(--vscode-button-secondaryForeground);
+}
+
+.status-badge.success {
+    background-color: var(--vscode-terminal-ansiGreen);
+    color: var(--vscode-button-foreground);
+}
+
+.status-badge.error {
+    background-color: var(--vscode-terminal-ansiRed);
+    color: var(--vscode-button-foreground);
+}
+
+/* --- Tag Input --- */
+.tag-input-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: calc(var(--spacing-unit) / 2);
+    background-color: var(--vscode-input-background);
+    border: 1px solid var(--vscode-input-border);
+    border-radius: var(--border-radius);
+    padding: calc(var(--spacing-unit) / 2) calc(var(--spacing-unit) * 1.5);
+    transition: border-color 0.1s ease-in-out;
+}
+
+.tag-input-container:focus-within {
+    outline: 1px solid var(--vscode-focus-border);
+    outline-offset: -1px;
+    border-color: var(--vscode-focus-border);
+}
+
+#tag-pills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-unit);
+    padding: var(--spacing-unit);
+    border: 1px solid var(--vscode-input-border);
+    border-radius: var(--border-radius);
+    min-height: 40px; /* Ensure it has some height even when empty */
+}
+
+/* Unified tag style for both list and edit views */
+.tag, .tag-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 8px;
+    background-color: var(--vscode-input-background);
+    border: 1px solid var(--vscode-border);
+    border-radius: var(--border-radius);
+    font-size: 0.9em;
+    line-height: 1.4;
+    white-space: nowrap;
+    cursor: default;
+}
+
+#tag-pills-container .tag-pill {
+    background-color: var(--vscode-button-secondary-background, var(--vscode-input-background));
+}
+
+#tag-pills-container .tag-pill:hover {
+    background-color: var(--vscode-button-secondary-hover-background, var(--vscode-list-hover-background));
+}
+
+.tag-remove-btn {
+    background: transparent;
+    border: none;
+    color: var(--vscode-foreground);
+    cursor: pointer;
+    margin-left: 6px;
+    padding: 0;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+    opacity: 0.6;
+}
+
+.tag-remove-btn:hover {
+    opacity: 1;
+    color: var(--vscode-errorForeground, #f44747); /* Keep color change for feedback */
+}
+
+.all-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-unit);
+    padding: var(--spacing-unit);
+    border: 1px solid var(--vscode-input-border);
+    border-radius: var(--border-radius);
+    margin-top: var(--spacing-unit);
+    max-height: 150px; /* Allow vertical scrolling if many tags exist */
+    overflow-y: auto;   /* Enable vertical scrollbar */
+}
+
+.all-tags-container .tag {
+    cursor: pointer;
+}
+
+/* Custom Select Dropdown */
+.custom-select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.custom-select-wrapper .input-field {
+    width: 100%;
+    padding-right: 30px; /* Make space for the arrow */
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+/* Hide the default dropdown arrow for datalist on some browsers */
+.custom-select-wrapper .input-field::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.custom-select-arrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: var(--vscode-input-placeholderForeground);
+    pointer-events: none; /* Allows clicks to pass through to the input */
+    transition: color 0.2s ease;
+}
+
+.custom-select-wrapper:hover .custom-select-arrow {
+    color: var(--vscode-foreground);
+}
+
+.custom-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background-color: var(--vscode-dropdown-background);
+    border: 1px solid var(--vscode-dropdown-border);
+    border-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    color: var(--vscode-input-foreground);
+    border-bottom: 1px solid var(--vscode-dropdown-border);
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover, .dropdown-item.active {
+    background-color: var(--vscode-list-hover-background);
+}
+
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--vscode-dropdown-background);
+    border: 1px solid var(--vscode-dropdown-border);
+    border-radius: 4px;
+    min-width: 120px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu .dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    color: var(--vscode-input-foreground);
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid var(--vscode-dropdown-border);
+}
+
+.dropdown-menu .dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: var(--vscode-list-hover-background);
+}
+
+.dropdown-divider {
+    height: 1px;
+    background-color: var(--vscode-dropdown-border);
+    margin: 4px 0;
+}
+
+/* Help Icon and Tooltip */
+.help-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--vscode-button-secondaryBackground);
+    color: var(--vscode-button-secondaryForeground);
+    font-size: 10px;
+    font-weight: bold;
+    cursor: help;
+    margin-left: 6px;
+    flex-shrink: 0;
+}
+
+.help-icon:hover {
+    background-color: var(--vscode-button-secondaryHoverBackground);
+}
+
+#tooltip {
+    position: absolute;
+    background-color: var(--vscode-editorHoverWidget-background);
+    color: var(--vscode-editorHoverWidget-foreground);
+    border: 1px solid var(--vscode-editorHoverWidget-border);
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 12px;
+    line-height: 1.4;
+    max-width: 300px;
+    word-wrap: break-word;
+    z-index: 10000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Spinner Animation */
+@keyframes spinner-rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--vscode-progressBar-background);
+    border-radius: 50%;
+    border-top-color: var(--vscode-button-background);
+    animation: spinner-rotation 1s ease-in-out infinite;
+}
+
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.status-indicator {
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+.status-indicator.success {
+    color: var(--vscode-terminal-ansiGreen);
+}
+
+.sync-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+}
+
+.context-menu {
+    position: absolute;
+    background-color: var(--vscode-menu-background);
+    border: 1px solid var(--vscode-menu-border);
+    border-radius: 4px;
+    padding: 4px 0;
+    min-width: 150px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: var(--vscode-menu-foreground);
+    font-size: 13px;
+}
+
+.context-menu-item {
+    padding: 6px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.context-menu-item:hover {
+    background-color: var(--vscode-menu-selectionBackground);
+    color: var(--vscode-menu-selectionForeground);
+}
+
+.context-menu-item.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.context-menu-text {
+    flex: 1;
+}
+
+.context-menu-shortcut {
+    color: var(--vscode-descriptionForeground);
+    font-size: 11px;
+}
+
+/* --- 预览卡片 --- */
+.prompt-preview-card {
+    position: fixed;
+    background: var(--vscode-editor-background);
+    border: 1px solid var(--vscode-widget-border);
+    border-radius: 6px;
+    padding: 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+    /* 移除固定的宽度设置，改为由JavaScript动态控制 */
+    max-height: calc(100vh - 16px); /* 允许使用几乎全部的垂直空间，只留16px边距 */
+    min-height: 300px; /* 提高最小高度确保合理的内容显示 */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0; /* 默认透明，等待显示动画 */
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.prompt-preview-card .preview-header {
+    padding: 16px 16px 8px 16px;
+    border-bottom: 1px solid var(--vscode-widget-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    background: var(--vscode-editor-background);
+    min-height: 50px; /* 确保头部高度稳定 */
+}
+
+.prompt-preview-card .preview-header h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--vscode-foreground);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    margin-right: 8px;
+}
+
+.preview-copy-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    background-color: var(--vscode-input-background);
+    border: 1px solid var(--vscode-input-border);
+    border-radius: var(--border-radius);
+    color: var(--vscode-foreground);
+    cursor: pointer;
+    font-size: 12px;
+    white-space: nowrap;
+    min-width: 60px;
+    justify-content: center;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.preview-copy-btn:hover:not(:disabled):not(.copying):not(.success) {
+    background-color: var(--vscode-list-hover-background);
+}
+
+.preview-copy-btn:active {
+    transform: scale(0.98);
+}
+
+.preview-copy-btn.copying,
+.preview-copy-btn.success {
+    background-color: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    border-color: var(--vscode-button-background);
+}
+
+.preview-copy-btn:disabled,
+.preview-copy-btn.copying {
+    cursor: not-allowed;
+}
+
+.prompt-preview-card .prompt-preview-content {
+    color: var(--vscode-input-foreground);
+    font-family: var(--font-family);
+    font-size: inherit;
+    line-height: 1.6;
+    padding: 12px;
+    margin: 16px;
+    margin-bottom: 8px;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap !important;  /* 强制保持换行和空格 */
+    hyphens: auto;
+    background-color: var(--vscode-input-background);
+    border: 1px solid var(--vscode-input-border);
+    border-radius: 4px;
+    text-align: left;
+    overflow-wrap: break-word;
+    flex: 1;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    min-height: 200px; /* 提高最小高度，为更多内容留出空间 */
+    /* 优化内容区域高度计算：动态适应总体高度，最大化垂直空间利用 */
+    max-height: calc(100vh - 180px); /* 总高度 - 头部(70px) - 底部元信息(70px) - 边距(40px) */
+    scrollbar-width: thin;
+    scrollbar-color: var(--vscode-scrollbarSlider-background) var(--vscode-scrollbarSlider-activeBackground);
+}
+
+.prompt-preview-card .prompt-preview-content::-webkit-scrollbar {
+    width: 14px; /* 增加滚动条宽度，更容易看到 */
+}
+
+.prompt-preview-card .prompt-preview-content::-webkit-scrollbar-track {
+    background: var(--vscode-input-background);
+    border-radius: 6px;
+    border: 1px solid var(--vscode-input-border);
+}
+
+.prompt-preview-card .prompt-preview-content::-webkit-scrollbar-thumb {
+    background-color: var(--vscode-scrollbarSlider-background);
+    border-radius: 6px;
+    border: 2px solid var(--vscode-input-background);
+    background-clip: content-box;
+    min-height: 30px; /* 增加最小高度，更容易抓取 */
+}
+
+.prompt-preview-card .prompt-preview-content::-webkit-scrollbar-thumb:hover {
+    background-color: var(--vscode-scrollbarSlider-hoverBackground);
+}
+
+.prompt-preview-card .prompt-preview-content::-webkit-scrollbar-thumb:active {
+    background-color: var(--vscode-scrollbarSlider-activeBackground);
+}
+
+/* 深色主题下的优化 */
+.vscode-dark .prompt-preview-card {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* 高对比度主题优化 */
+.vscode-high-contrast .prompt-preview-card {
+    border: 2px solid var(--vscode-contrastBorder);
+}
+
+.prompt-preview-card.hidden {
+    display: none;
+}
+
+.prompt-preview-card.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.prompt-preview-card::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: var(--arrow-left, 20px);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--vscode-editorHoverWidget-border);
+}
+
+.prompt-preview-card::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: var(--arrow-left, 20px);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--vscode-editorHoverWidget-background);
+}
+
+.prompt-preview-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--vscode-foreground);
+    font-size: 14px;
+}
+
+.prompt-preview-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: flex-start; /* 改为顶部对齐，避免内容压缩 */
+    font-size: 12px;
+    color: var(--vscode-descriptionForeground);
+    padding: 10px 16px 12px 16px; /* 适度减少内边距 */
+    border-top: 1px solid var(--vscode-widget-border);
+    flex-shrink: 0; /* 确保不被压缩 */
+    background: var(--vscode-editor-background);
+    min-height: 50px; /* 适度减少最小高度 */
+    max-height: none; /* 移除最大高度限制，允许标签换行 */
+}
+
+.prompt-preview-category {
+    background-color: var(--vscode-button-secondaryBackground);
+    color: var(--vscode-button-secondaryForeground);
+    padding: 4px 8px; /* 增加内边距，更容易点击 */
+    border-radius: 4px; /* 增加圆角 */
+    font-size: 11px;
+    font-weight: 500; /* 增加字重 */
+}
+
+.prompt-preview-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px; /* 增加标签间距 */
+}
+
+.prompt-preview-tags .tag {
+    font-size: 10px;
+    padding: 3px 6px; /* 增加标签内边距 */
+    opacity: 0.9; /* 稍微增加透明度，更容易看到 */
+    border-radius: 3px; /* 增加圆角 */
+}
+
+/* 上方显示时的箭头样式 */
+.prompt-preview-card.arrow-bottom::before {
+    top: auto;
+    bottom: -6px;
+    border-top: 6px solid var(--vscode-editorHoverWidget-border);
+    border-bottom: none;
+}
+
+.prompt-preview-card.arrow-bottom::after {
+    top: auto;
+    bottom: -5px;
+    border-top: 6px solid var(--vscode-editorHoverWidget-background);
+    border-bottom: none;
+}
